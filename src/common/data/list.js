@@ -1,0 +1,23 @@
+module.exports =  showList= [
+    {
+        name:'a',
+        age:11,
+        address:"aaa1",
+        hobby:'aaaaa1',
+        date:'2020-08-21'
+    },
+    {
+        name:'a1',
+        age:12,
+        address:"aaa2",
+        hobby:'aaaaa2',
+        date:'2020-08-22'
+    },
+    {
+        name:'a2',
+        age:13,
+        address:"aaa3",
+        hobby:'aaaaa3',
+        date:'2020-08-23'
+    }
+]
