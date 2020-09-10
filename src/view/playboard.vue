@@ -9,7 +9,7 @@
         background-color="#000"
         text-color="#fff"
         active-text-color="#00FF7F"
-        style="height:100vh"
+        style="height:100%"
         :collapse-transition="false"
         router
         :unique-opened="true"
@@ -142,6 +142,7 @@ export default {
   display: flex;
   .box-menu {
     display: flex;
+    height: 100vh;
     .el-menu-vertical-demo[data-v-7b155961]:not(.el-menu--collapse) {
       width: 150px;
     }
@@ -155,11 +156,12 @@ export default {
   }
   .content {
     width: 100%;
-    height: 100vh;
+    // height: 100vh;
+    height: 100%;
     background: palegreen;
     .con-img {
       width: 100%;
-      height: calc(100vh - 50px);
+      // height: calc(100vh - 50px);
     }
     .ope-icon {
       float: left;
