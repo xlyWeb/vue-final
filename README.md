@@ -1,7 +1,7 @@
 # vue-final
 
 > 为了自由，上吧。奥利给
-
+> github 15655365538@163.com   xinlaiyang520
 ## Build Setup
 
 ``` bash
@@ -13,6 +13,7 @@ npm run dev
 
 # build for production with minification
 npm run build
+
 
 # build for production and view the bundle analyzer report
 npm run build --report

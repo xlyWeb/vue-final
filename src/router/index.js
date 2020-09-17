@@ -1,7 +1,7 @@
 import Vue from 'vue'
 import Router from 'vue-router'
-import * as ROUTE from '@/configure/router.js'
-import routeList from '@/configure/route1.js'
+// import * as ROUTE from '@/configure/router.js'
+import routeList from '@/configure/route.js'
 
 Vue.use(Router)
 
@@ -11,46 +11,51 @@ export default new Router({
     {
       path: '/login',
       name: 'login',
-      component: ROUTE.LOGIN
+      component: routeList.login
     },
     {
       path: '/',
       name: 'playboard',
-      component: ROUTE.PLAYBOARD,
+      component: routeList.playboard,
       children: [
         {
           path: 'map-baidu',
           name: 'baidu',
-          component: ROUTE.BAIDU,
+          component: routeList.baidu,
         },
         {
           path: 'map-gaode',
           name: 'gaode',
-          component: ROUTE.GAODE,
+          component: routeList.gaode,
         },
         {
           path: 'map-tengxun',
           name: 'tengxun',
-          component: ROUTE.TX,
+          component: routeList.tx,
         },
         {
           path: 'data-gannt',
           name: 'gannt',
-          component: ROUTE.GANNT
+          component: routeList.gannt
         },{
           path:'data-list',
           name:'list',
-          component:ROUTE.LIST
+          component:routeList.list
         },
         {
           path:'data-msg',
           name:'msg',
-          component:ROUTE.MSG
+          component:routeList.msg
         },
         {
           path:'data-stage',
           name:'stage',
-          component:ROUTE.STAGE
+          component:routeList.stage
+        },
+        {
+          path:'data-addList',
+          name:'addList',
+          component:routeList.addList
         },
         {
           path:'operater-add',

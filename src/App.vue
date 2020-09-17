@@ -17,9 +17,6 @@ export default {
       // },
     };
   },
-  created(){
-    console.log(style)
-  }
 };
 </script>
 
