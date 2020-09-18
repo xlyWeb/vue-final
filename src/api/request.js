@@ -8,3 +8,10 @@ export function getConsumerList(data){
         params:data
     })
 }
+export function addConsumerList(data){
+    return axios ({
+        url:api.CONSUMERADD,
+        method:'POST',
+        data
+    })
+}

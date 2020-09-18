@@ -50,6 +50,7 @@
       </el-col>
     </el-row>
     <el-table
+      v-loading="loading"
       ref="multipleTable"
       :data="tableData"
       tooltip-effect="dark"
@@ -107,6 +108,7 @@ export default {
       pageIndex:1,
       pageSize:10,
       dialogVisible: false,
+      loading:false
     };
   },
   created() {
@@ -115,8 +117,10 @@ export default {
       pageIndex:this.pageIndex,
       pageSize: this.pageSize
     }
+    this.loading = true
     getConsumerList(data).then((res) => {
       this.tableData = res.data.consumer;
+      this.loading = false
       console.log(res, "===");
     });
   },
@@ -135,7 +139,9 @@ export default {
         pageIndex:this.pageIndex,
         pageSize: this.pageSize
       };
+      this.loading = true
       getConsumerList(data).then((res) => {
+        this.loading = false
         this.tableData = res.data.consumer;
         console.log(res, "--");
       });

@@ -1,4 +1,5 @@
 
 module.exports = {
-    CONSUMERLIST:'/user/consumerList'
+    CONSUMERLIST:'/user/consumerList',
+    CONSUMERADD:'/user/consumerAdd'
 }
