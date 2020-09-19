@@ -15,3 +15,10 @@ export function addConsumerList(data){
         data
     })
 }
+export function deleteConsumerList(data){
+    return axios ({
+        url:api.CONSUMERDELETE,
+        method:'DELETE',
+        params:data
+    })
+}

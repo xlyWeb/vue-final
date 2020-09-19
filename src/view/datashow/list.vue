@@ -70,7 +70,7 @@
       <el-table-column label="操作" align="center" show-overflow-tooltip>
         <template slot-scope="scope">
           <el-button size="mini" type="primary" @click="goAdd(scope.row.id)">编辑</el-button>
-          <el-button size="mini" type="danger">删除</el-button>
+          <el-button size="mini" type="danger" @click="deleteUser(scope.row.id)">删除</el-button>
         </template>
       </el-table-column>
     </el-table>
@@ -93,7 +93,7 @@
 </template>
 <script>
 import list from "@/common/data/list";
-import { getConsumerList } from "@/api/request";
+import { getConsumerList,deleteConsumerList } from "@/api/request";
 export default {
   data() {
     return {
@@ -121,7 +121,6 @@ export default {
     getConsumerList(data).then((res) => {
       this.tableData = res.data.consumer;
       this.loading = false
-      console.log(res, "===");
     });
   },
   methods: {
@@ -143,12 +142,19 @@ export default {
       getConsumerList(data).then((res) => {
         this.loading = false
         this.tableData = res.data.consumer;
-        console.log(res, "--");
       });
     },
     add() {
-      // this.dialogVisible = true;
       this.$router.push('/data-addList')
+    },
+    goAdd(id){
+      console.log(id)
+    },
+    deleteUser(id){
+      console.log(id)
+      deleteConsumerList(id).then(res=>{
+        console.log(res)
+      })
     },
     submit() {
       this.dialogVisible = false;
