@@ -22,3 +22,19 @@ export function deleteConsumerList(data){
         params:data
     })
 }
+
+export function getConsumerInfo(data){
+    return axios ({
+        url:api.CONSUMERINFO,
+        method:'GET',
+        params:data
+    })
+}
+
+export function updateConsumerInfo(data){
+    return axios ({
+        url:api.CONSUMERUPDATE,
+        method:'PUT',
+        data
+    })
+}

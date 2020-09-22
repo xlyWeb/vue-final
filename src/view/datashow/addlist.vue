@@ -9,8 +9,8 @@
       class="demo-ruleForm"
       size="medium "
     >
-      <el-form-item label="姓名" prop="name">
-        <el-input v-model="ruleForm.name" maxlength="10" show-word-limit></el-input>
+      <el-form-item label="姓名" prop="username">
+        <el-input v-model="ruleForm.username" maxlength="10" show-word-limit></el-input>
       </el-form-item>
       <el-form-item label="密码" prop="password">
         <el-input v-model="ruleForm.password"></el-input>
@@ -40,17 +40,21 @@
     </el-form>
     <div class="oper">
       <el-button type="primary" @click="submit()">提交</el-button>
-      <el-button>取消</el-button>
+      <el-button @click="cancle()">取消</el-button>
     </div>
   </div>
 </template>
 <script>
-import { addConsumerList } from "@/api/request";
+import {
+  addConsumerList,
+  getConsumerInfo,
+  updateConsumerInfo,
+} from "@/api/request";
 export default {
   data() {
     return {
       ruleForm: {
-        name: "",
+        username: "",
         time: "",
         address: "",
         age: "",
@@ -58,8 +62,9 @@ export default {
         phone: "",
         password: "",
       },
+      queryId: "",
       rules: {
-        name: [{ required: true, message: "请输入姓名", trigger: "blur" }],
+        username: [{ required: true, message: "请输入姓名", trigger: "blur" }],
         password: [{ required: true, message: "请输入密码", trigger: "blur" }],
         date: [
           {
@@ -76,16 +81,52 @@ export default {
       },
     };
   },
+  created() {
+    console.log(this.$route.query.id);
+
+    this.queryId = this.$route.query.id;
+    if (this.queryId) {
+      this.edit(this.queryId);
+    }
+  },
   methods: {
+    // 提交
     submit() {
-      console.log(this.ruleForm, "--");
-      addConsumerList(this.ruleForm).then((res) => {
-        console.log(res);
+      if (this.queryId) {
+        let dt = {
+          id: this.queryId,
+          ...this.ruleForm,
+        };
+        updateConsumerInfo(dt).then((res) => {
+          if (res.status === "success") {
+            this.$message({
+              message: "恭喜你，这是一条成功消息",
+              type: "success",
+            });
+            this.$router.push("/data-list");
+          }
+        });
+      } else {
+        addConsumerList(this.ruleForm).then((res) => {
+          console.log(res);
+          if (res.status === "success") {
+            this.$router.push("/data-list");
+          }
+        });
+      }
+    },
+    // 修改  获取数据
+    edit(id) {
+      getConsumerInfo({ id }).then((res) => {
         if (res.status === "success") {
-          this.$router.push("/data-list");
+          this.ruleForm = res.data.consumerInfo;
         }
       });
     },
+    // 取消
+    cancle(){
+      this.$router.push('/data-list')
+    }
   },
 };
 </script>
