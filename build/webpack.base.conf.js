@@ -47,13 +47,15 @@ module.exports = {
       ...(config.dev.useEslint ? [createLintingRule()] : []),
       {
         test: /\.less$/,
-        loader: "style-loader!css-loader!less-loader",
-        options: {
-          // 开启 CSS Modules
-          modules: true,
-          // 自定义生成的类名
-          localIdentName: '[local]_[hash:base64:8]'
-        }
+        use:{
+          loader: "style-loader!css-loader!less-loader",
+          options: {
+            // 开启 CSS Modules
+            modules: true,
+            // 自定义生成的类名
+            localIdentName: '[local]_[hash:base64:8]'
+          }
+        },
       },
       {
         test: /\.vue$/,

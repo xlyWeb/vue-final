@@ -34,7 +34,7 @@
             <span slot="title">ECHARTS</span>
             <el-menu-item index="echarts-category">折线</el-menu-item>
             <el-menu-item index="echarts-bar">柱状图</el-menu-item>
-            <el-menu-item index="1-4-3">饼图</el-menu-item>
+            <el-menu-item index="echarts-pie">饼图</el-menu-item>
           </el-submenu>
         </el-submenu>
         <el-submenu index="2">

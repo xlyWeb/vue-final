@@ -1,7 +1,7 @@
 <template>
   <div class="bar-box">
     <p>柱状图</p>
-    <div class="bar-content" id="content"></div>
+    <div class="bar-content" ref="content"></div>
   </div>
 </template>
 <script>
@@ -10,16 +10,15 @@ export default {
     return {};
   },
   created() {
-      
   },
   mounted(){
     this.initEcharts()
   },
   methods: {
     initEcharts() {
-      var echartDemo = this.$echarts.init(document.getElementById("content"));
-      option = {
-        color: ["#618FC8"],
+      var echartDemo = this.$echarts.init(this.$refs.content)
+       var option = {
+         color: ["#618FC8"],
         backgroundColor: "#F8F8F8",
         tooltip: {
           trigger: "axis",
@@ -69,8 +68,9 @@ export default {
 <style lang="less" scoped>
 .bar-box {
   .bar-content {
-    width: 800px;
-    height: auto;
+    width: 400px;
+    // height: 800px;
+    height: 400px;
   }
 }
 </style>

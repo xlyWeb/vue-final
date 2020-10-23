@@ -71,6 +71,11 @@ export default new Router({
           path:'echarts-bar',
           name:'bar',
           component:routeList.bar
+        },
+        {
+          path:'echarts-pie',
+          name:'pie',
+          component:routeList.pie
         }
       ]
     },
